@@ -1,3 +1,8 @@
+'''
+@Author : Lindokuhle Magudulela
+function changes string type to date type, very useful when inserting entries on dB
+
+'''
 from datetime import datetime
 
 def to_date(date_string):
