@@ -33,17 +33,17 @@ serialization.register_serializer(DateTimeSerializer(), 'TinyDate')
 
 db = TinyDB('testdb.json',storage=serialization) #First open the document stor which is on the working dir
 
-def df_to_db(building,consumption_df,collection = 'energy'):
+def df_to_db(building,consumption_df,table = 'energy'):
     number_of_readings = len(consumption_df)
 
     # existing_tables = db.tables()
     # if((existing_tables.find(collection) == False)):
     #     sys.exit("Tables not found. Try: energy,water,solarHeating")
     # else:
-    collection = db.table(collection)
-    json.dumps(collection, indent=4, sort_keys=True, default=str)
+    collection = db.table(table)
+
     for i in range(number_of_readings):
-        collection = db.table('collection')
+        
         collection.insert(
         {
              'campus_name': building['location']
