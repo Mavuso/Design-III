@@ -34,7 +34,7 @@ serialization.register_serializer(DateTimeSerializer(), 'TinyDate')
 db = TinyDB('testdb.json',storage=serialization) #First open the document stor which is on the working dir
 
 def df_to_db(building,consumption_df,collection = 'energy'):
-    number_of_readings = 1#len(consumption_df)
+    number_of_readings = len(consumption_df)
 
     # existing_tables = db.tables()
     # if((existing_tables.find(collection) == False)):
@@ -42,7 +42,7 @@ def df_to_db(building,consumption_df,collection = 'energy'):
     # else:
     collection = db.table(collection)
     json.dumps(collection, indent=4, sort_keys=True, default=str)
-    for i in range(2):
+    for i in range(number_of_readings):
         collection = db.table('collection')
         collection.insert(
         {
@@ -56,8 +56,8 @@ def df_to_db(building,consumption_df,collection = 'energy'):
             # #one dataframe has consumtion values of one building
             # #there we only iterate through the dataframe
             'consumption':{
-                'date': consumption_df['Date_time'][0],
-                'consumption':consumption_df['Reading'][0]
+                'date': consumption_df['Date_time'][i],
+                'consumption':consumption_df['Reading'][i]
             }
         })
 
