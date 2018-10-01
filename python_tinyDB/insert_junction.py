@@ -20,10 +20,10 @@ df.columns = columns
 
 for i in range(number_of_readings):
      df['Date_time'][i] = to_date(df['Date_time'][i]) 
-df['Reading'].replace(to_replace="-1",value = "4",inplace = True)
+
 
 df['Reading']=df['Reading'].astype('float')
-print(type(df['Reading'][3]))
+print(len(df['Reading']))
 df_to_db(building,df,)
 #schema of document
 #the document is imbedded, campus <- building <- consumption
