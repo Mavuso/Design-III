@@ -21,7 +21,7 @@ df.columns = columns
 for i in range(number_of_readings):
      df['Date_time'][i] = to_date(df['Date_time'][i]) 
 
-
+print(type(df['Date_time'][4]))
 df['Reading']=df['Reading'].astype('float') #changing type to json serializable formate
 
 df_to_db(building,df,)

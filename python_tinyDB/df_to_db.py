@@ -4,29 +4,15 @@ the dataframe is the inserted into the database.
 '''
 from tinydb import TinyDB
 import datetime, json
+from serializer import DateTimeSerializer
 from tinydb_serialization import SerializationMiddleware
-from tinydb_serialization import SerializationMiddleware
-from datetime import datetime
 from tinydb_serialization import Serializer
 
-class DateTimeSerializer(Serializer):
-    OBJ_CLASS = datetime  # The class this serializer handles
 
-    def encode(self, obj):
-        return obj.strftime("%Y-%m-%d %H:%M")
-
-    def decode(self, s):
-        return datetime.strptime(s, "%Y-%m-%d %H:%M")
 
 
 serialization = SerializationMiddleware()
 serialization.register_serializer(DateTimeSerializer(), 'TinyDate')
-
-
-
-
-
-
 
 
 
@@ -40,7 +26,7 @@ def df_to_db(building,consumption_df,table = 'energy'):
     #     sys.exit("Tables not found. Try: energy,water,solarHeating")
     # else:
     collection = db.table(table)
-
+   
     for i in range(number_of_readings):
         
         collection.insert(
