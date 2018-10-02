@@ -8,7 +8,7 @@ from df_to_db import df_to_db
 building = {}
 building['building_name']='Shosholoza'
 building['location']='Wits_The_Junction'
-building['used_fo']='Residential'
+building['used_for']='Residential'
 
 print('***Extracting data from csv****')
 directory = "../Data_files/TEST/WITS_The_Junction_MSS_1_Kiosk_Shosholoza_kVarh.csv"
@@ -22,8 +22,8 @@ for i in range(number_of_readings):
      df['Date_time'][i] = to_date(df['Date_time'][i]) 
 
 
-df['Reading']=df['Reading'].astype('float')
-print(len(df['Reading']))
+df['Reading']=df['Reading'].astype('float') #changing type to json serializable formate
+
 df_to_db(building,df,)
 #schema of document
 #the document is imbedded, campus <- building <- consumption

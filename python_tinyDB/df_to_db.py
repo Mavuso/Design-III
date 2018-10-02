@@ -2,11 +2,10 @@
 Function takes in campuse, builidng name and a dataframe of consumption(an puts it in te correct collection) 
 the dataframe is the inserted into the database.
 '''
-from tinydb import TinyDB, where
+from tinydb import TinyDB
 import datetime, json
 from tinydb_serialization import SerializationMiddleware
 from tinydb_serialization import SerializationMiddleware
-from tinydb import Query
 from datetime import datetime
 from tinydb_serialization import Serializer
 
@@ -51,7 +50,7 @@ def df_to_db(building,consumption_df,table = 'energy'):
             #     #embedded documents
              'building':{
                         'building_name' : building['building_name'],
-                        'used_fo': building['used_fo']
+                        'used_for': building['used_for']
                 },
             # #one dataframe has consumtion values of one building
             # #there we only iterate through the dataframe
