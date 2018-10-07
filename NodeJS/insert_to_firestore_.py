@@ -15,35 +15,35 @@ firebase_admin.initialize_app(cred, {
 #from .csv . Building is a dictionery with building infor.
 database = firestore.client()
 
-# doc_ref = database.collection(u'users').document(u'alovelace54')
-# doc_ref.set({
-#     u'first': u'Ada',
-#     u'last': u'Lovelace',
-#     u'born': 1815
-# })
+doc_ref = database.collection(u'people').document(u'alovelace')
+doc_ref.set({
+    u'first': u'Ada',
+    u'last': u'Lovelace',
+    u'born': 1815
+})
 
 users_ref = database.collection('people')
 docs = users_ref.get()
 
-for doc in docs:
-    print(u'{} => {}'.format(doc.id, doc.to_dict()))
+# for doc in docs:
+#     print(u'{} => {}'.format(doc.id, doc.to_dict()))
 
-# def insert_to_firestore(consumption_df,collection = "energy",
-# building={"building_id":"shosholoza_jun","campus_id":"wits_junction",}):
-#     #initialize firestore
-#     database = firestore.client()
+def insert_to_firestore(consumption_df,collection = "energy",
+building={"building_id":"shosholoza_jun","campus_id":"wits_junction",}):
+    #initialize firestore
+    database = firestore.client()
     
-#     number_of_readings = len(consumption_df)
-#     print(consumption_df.head)
-#     print("**inserting to firestore**")
-#     for i in range(number_of_readings):
+    number_of_readings = len(consumption_df)
+    print(consumption_df.head)
+    print("**inserting to firestore**")
+    for i in range(number_of_readings):
         
-#         doc = database.collection(u'energy_2').document(
-#             create_docID(consumption_df['Date_time'][i],building["building_id"]))
-#         doc.set({
-#             u'campus_id' : building["campus_id"],
-#             u'campus_id' : building["building_id"],
-#             u'Date_time': to_date(consumption_df['Date_time'][i]),
-#             u'consumption': consumption_df['Reading'][i]
-#         })
-#     
+        doc = database.collection(u'energy_2').document(
+            create_docID(consumption_df['Date_time'][i],building["building_id"]))
+        doc.set({
+            u'campus_id' : building["campus_id"],
+            u'building_id' : building["building_id"],
+            u'Date_time': to_date(consumption_df['Date_time'][i]),
+            u'consumption': consumption_df['Reading'][i]
+        })
+    
