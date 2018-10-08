@@ -12,7 +12,7 @@ building['used_for']='Residential'
 
 print('***Extracting data from csv****')
 
-directory = "WITS_The_Junction_MSS_1_Kiosk_Shosholoza_kVarh.csv"
+directory = "../clean_data/junction_amagumbi.csv"
 
 columns = ['Date_time','Reading']
 df = pd.read_csv(directory)
@@ -22,9 +22,8 @@ df.columns = columns
 df['Reading']=df['Reading'].astype('float') #changing type to json serializable formate
 
 insert_to_firestore(df,collection = "energy",
-building={"building_id":"shosholoza_jun","campus_id":"wits_junction",})
+building={"building_id":"amagumbi_jun","campus_id":"wits_junction",})
 
 #schema of document
 #the document is imbedded, campus <- building <- consumption
-
 

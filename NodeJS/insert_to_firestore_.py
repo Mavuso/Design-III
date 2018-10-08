@@ -28,8 +28,7 @@ docs = users_ref.get()
 # for doc in docs:
 #     print(u'{} => {}'.format(doc.id, doc.to_dict()))
 
-def insert_to_firestore(consumption_df,collection = "energy",
-building={"building_id":"shosholoza_jun","campus_id":"wits_junction",}):
+def insert_to_firestore(consumption_df,collection,building):
     #initialize firestore
     database = firestore.client()
     
@@ -38,11 +37,11 @@ building={"building_id":"shosholoza_jun","campus_id":"wits_junction",}):
     print("**inserting to firestore**")
     for i in range(number_of_readings):
         
-        doc = database.collection(u'energy_2').document(
+        doc = database.collection(collection).document(
             create_docID(consumption_df['Date_time'][i],building["building_id"]))
         doc.set({
-            u'campus_id' : building["campus_id"],
-            u'building_id' : building["building_id"],
+            u'campus_id' : collection+building["campus_id"],
+            u'building_id' : collection+building["building_id"],
             u'Date_time': to_date(consumption_df['Date_time'][i]),
             u'consumption': consumption_df['Reading'][i]
         })
