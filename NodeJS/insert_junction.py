@@ -30,8 +30,6 @@ insert_to_firestore(df,utility = "energy",
 building={"building_name":"Amagumbi","campus_name":"wits_junction","type":"Residential"})
 
 
-
-
 #schema of document
 #the document is imbedded, campus <- building <- consumption
 

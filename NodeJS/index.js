@@ -3,13 +3,13 @@ let express = require("express");
 let app = express();
 
 let mainRouter = require('./mainRoutes.js');
-let todoRouter = require('./todoRoutes.js');
+let projectRouter = require('./projectRoutes.js');
 
 
 //mounting
 app.use("/cdn",express.static(path.join(__dirname+"/public")));
 app.use("/", mainRouter);
-app.use("/todo", todoRouter);
+app.use("/wits_energy", projectRouter);
 
 app.listen(5000);
 console.log("Running");

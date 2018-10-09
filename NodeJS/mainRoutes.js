@@ -12,7 +12,7 @@ mainRouter.get('/',function(req,res){
 
 
 mainRouter.get('/about',function(req,res){
-    res.sendfile(path.join(__dirname + '/about.html'));
+    res.sendFile(path.join(__dirname + '/pages/about.html'));
 });
 
 module.exports = mainRouter;
