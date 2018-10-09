@@ -35,8 +35,8 @@ def insert_to_firestore(consumption_df,collection,building):
     number_of_readings = len(consumption_df)
     print(consumption_df.head)
     print("**inserting to firestore**")
+    
     for i in range(number_of_readings):
-        
         doc = database.collection(collection).document(
             create_docID(consumption_df['Date_time'][i],building["building_id"]))
         doc.set({
