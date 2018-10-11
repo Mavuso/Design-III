@@ -35,9 +35,8 @@ function get_firestore_data(res){
     var query = doc_ref.where('month', '==', '06').get()
     .then(snapshot => {
       snapshot.forEach(doc => {
-        y=doc.data().consumption;
+        y=doc.data().consumptions;
         x =doc.data().timestamps;
-        
         res.json({'x':x,'y':y});
     });
       

@@ -1,0 +1,20 @@
+#graph {
+    position: absolute;
+    left: 400px;
+    top: 270px;
+    height: 50%;
+    width: 50%;
+    background-color: black
+}
+
+h1{
+    text-align: center
+}
+
+#plot_button{
+    height: 5%;
+    width: 40%;
+    position: absolute;
+    left: 460px;
+    top: 235px;
+}
