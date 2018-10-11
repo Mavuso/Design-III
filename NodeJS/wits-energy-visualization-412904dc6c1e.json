@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "wits-energy-visualization",
+  "private_key_id": "412904dc6c1ee00dcdd3d92c3c4f517cd4e7886f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1sZpc9108lnvR\nVvLq0ts3RT3YCoN/VhTjOOO2N+qj1OU95OmHOixe4zjsfSH4x6xM7ul3gx9dX9Qx\nqdLlOEmDG9wahh5wkWy8rfJTmEOFN59IiN0vmvu44FksPiwVg8seBOlGGIRbbmkw\nzAu9KNN07qzqzw1kMmAP7egIOiMkxKkga77daUK2+F9rAVF1Gmnqz39DE86vQ3HE\nrp5sV+ckN/9PgIFIMBQcGcG0jHpVOupgWCwUyTCtjW3ASYtqRBxXT7FyqVkdfc2H\nRSXfqS6QZu73IRypGpX3/cEf20IeIrFJ+CCztXesJJ55aKtaDWvfM+ezfOVt9CWo\nkoMuLyenAgMBAAECggEAGmjkXRr/jGz7NmSDDqrzfkcsRBjTIFEs3BJK1xOtoX6y\ni5qYbzV/eZNhlM5jf7vWSaB4gwymJHZna4iZxQO3e70y8xAHoKkiuxI1pPz+44BA\nQNTUAbVvXWIO1CV9Vus/PO/N0IiDxJ5538Po+OfURKzkqYTLF4NS/z2/emKo9RD6\nKFLdsfdq4pzoal1lhkDf5803MbCulb9zE+VuS3nq0cbs8fm3ZYw8pWhF9/LH9IuC\nl1MWgtqrcxF6nHXMNdQO2nq9I4Q6WSYoBxYKvQb4+tW8KZrolXiVuduoTt90wtdQ\nnTcGreDuVNmnYAUZqHZ6xrf5ZsLSdlyjUmBxiJiXsQKBgQDan7dqYf7Kg5L8gIqc\nAsNCtmC7jbwv5u0vQnghVMMzYFTYLS+xysHnXH8EOD8SJaPmo88FklvkxvQ3d3BL\nMlsPoNIFfw5ypEi/+tNIaOHOLOOKcU4LepSyIgzFoM3aCGU7eBS3e0F7f1Igm3tq\nLOIyG0uNToH5QKmCt0HRldgXdQKBgQDUwZqjXHspg26MsoR4nRzi7VkhlMZHfB8z\nNUlLkO/1LyypBJNQLnwk22vIEWDP/Z50egE6IQEl6IIptZGx2dhDF00l2Cg02rEf\n5Zw5EzE0lu43VrZ34h2/ptI7+q2jXE8GArNqzwK7rw2bpuBdIw+DJv+D3izSPR4W\nlI2Xm2Z7KwKBgQDLMSy4jFHSCQ3g7ttk+tBePcGUL7xbTSbfCMk8OVqfcoYI0Z6F\ngSxNC1PmKRy9kgxOfasYw5ny/NLYhoLw8OFfmhn5D8ju1i/jdo1OvGQ6StBEyOA/\nnPN8yFbUi4snfSwRZJ7klYMb9A7xzXCcExE8fs/uiqwUbHvfyNE8qSdJTQKBgB0q\nTSCH1Ppj4gu3jSFbqFITZ1yLIIM8KKrEaz/Ippxd0yl4Txl2xd3nlmbeuv7ILaiZ\n8QEe9SFVNkKxeT+ANX08/H5rm1djg1R0DW5liyFCb3V2lZzpilpza+589sCmLs8M\nH7xMlHtWC++CeM9Ltxyrg+t30X0gk7dUtfRKgUnxAoGAIGhxJ/tkdLDaqs8KMF6s\nmG4ZiSAlAd4bd+ohSph5Snrez3GZgS2uM7w0brNev7NK1fmA/YuoF8gUvuoExMQ+\nBSvdKEuWaq9Wb42BREGUaZhrfzTMEV13t5NObxIr399keRP/hq6HJfLEl7qr6kdc\nG6LChGg6WoFv/0YisTbartM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "wits-energy-viz@wits-energy-visualization.iam.gserviceaccount.com",
+  "client_id": "112272580940256286737",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/wits-energy-viz%40wits-energy-visualization.iam.gserviceaccount.com"
+}
