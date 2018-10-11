@@ -7,6 +7,7 @@ let mainRouter = express.Router()
 var app = express()
 
 mainRouter.get('/',function(req,res){
+    console.log("Testing get home")
     res.send("Hellow world");
 });
 
