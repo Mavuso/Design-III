@@ -5,8 +5,8 @@ let path = require("path")
 let bodyParser = require("body-parser");
 let query_firestore = require('./get_data.js')
 
-
-//dataRouter.use(bodyParser.urlencoded({ extended: true }));
+projectRouter.use(bodyParser.urlencoded({ extended: true }));
+projectRouter.use(bodyParser.json());
 
 projectRouter.get('/get_data', function (req, res) {
     console.log("BODY");
@@ -20,8 +20,10 @@ projectRouter.get('/',function(req,res){
 });
 
 
-projectRouter.get('/create',function(req,res){
-    res.sendFile(path.join(__dirname,'/pages','create.html'));
+projectRouter.post('/create',function(req,res){
+    
+    console.log(req.body.type);
+    //res.sendFile(path.join(__dirname,'/pages','create.html'));
 });
 
 projectRouter.get('/delete',function(req,res){

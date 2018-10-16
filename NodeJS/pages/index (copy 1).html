@@ -40,28 +40,17 @@
 			<button type="button"  id="plot_button" class = "btn btn-outline-success">Get plot</button>
 		</a>
 
+		<div class="dropdown" style="float:left;">
+  			<button class="dropbtn">Left</button>
+  			<div class="dropdown-content" style="left:0;" id = "building_menu">
+    			<a href="#" id = "Amagugu">Amagugu</a>
+    			<a href="#" id = "Shosholoza">Shosholoza</a>
+    			<a href="#" id = "Building 3">Link 3</a>
+  			</div>
+		</div>
   		
 
-		
-		<form id = "plot_form">
-		<p>Choose plot type:  		
-  			<select name="plot_menu" id = "plot_menu">
-    			<option value="line">Line graph</option>
-    			<option value="bar">Saab</option>
-    			<option value="area">Fiat</option>
-  			</select>
-		</p>  		
 
- 			<p>Choose building:
-			<select name="buildings_menu" id = "buildings_menu">
-    			<option value="Amagugu" selected>Amagugu</option>
-    			<option value="Shosholoza" selected>Shosholoza</option>
-    			<option value="building 2">building 2</option>
-    			<option value="building 3">building 3</option>
-  			</select>
-  			<br><br>
- 			</p>
-		<p>
 		<fieldset>
     		<legend>Choose dates to plot</legend>
 
@@ -80,13 +69,19 @@
     	</div>
 
 	</fieldset>
-	</p>
-	<button id="plot">Get plot</button> 
 	
 	
-	
-	</form>
 
+	<div class="dropdown"  id = "graph_menu_div">
+		<button class="dropbtn" id = "graph_menu_button">Choose graph</button>
+  		<div class="dropdown-content" id = "graph_menu">
+    		<a href="#" id = "line">line graph</a>
+    		<a href="#" id = "area">Area graph</a>
+    		<a href="#" id = "bar">Bar</a>
+  		</div>
+	</div>
+
+		
 </div>
 </body>
 </html>
