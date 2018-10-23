@@ -20,29 +20,39 @@ admin.initializeApp({
 let database = admin.firestore();
 
 
-
 let campus = "wits_junction";
-let building = "Amagumbi";
+let building = "Ntombela";
 let utility = "energy";
 
 let collection_name = utility+"_"+building+"_"+campus
 
-function get_firestore_data(res){
-    let y = []//Consumption array
-    let x = []//dates array
+function get_firestore_data(graph_options,res){
+  let collection_name = utility+"_"+graph_options.building_name+"_"+campus;
+  console.log("Testing");
+  let y = new Array(0)//Consumption array
+  let x = new Array(0)//dates array
+  let start_date = new Date(graph_options.start)
   
-    let doc_ref = database.collection(collection_name);
-    var query = doc_ref.where('month', '==', '06').get()
-    .then(snapshot => {
-      snapshot.forEach(doc => {
-        y=doc.data().consumptions;
-        x =doc.data().timestamps;
-        res.json({'x':x,'y':y});
-    });
-      
+  let end_date = new Date(graph_options.end)
+  let plot_start = start_date.getFullYear().toString()+ "-0" +start_date.getMonth().toString();
+  let plot_end = end_date.getFullYear().toString()+ "-0" +(1+end_date.getMonth()).toString();
+  console.log(end_date.getMonth())
+  let doc_ref = database.collection(collection_name);
+  let document_count = 1;  
+  doc_ref.where('year-month', '<=', plot_end)
+    .where('year-month', '>=', plot_start).get()
+    .then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        
+        y=y.concat(doc.data().consumptions);
+        x=x.concat(doc.data().timestamps);  
+      });
+      res.json({'x':x,'y':y});
+      console.log(x)
     })
     .catch(err => {
       console.log('Error getting documents', err);
+      res.json("waiting")
     });
     
 }

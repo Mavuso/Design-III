@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 import numpy as np
 
-file = "../Data_files/WITS_The_Junction_MSS_3_Kiosk_Amagumbi_kWh/WITS_The_Junction_MSS_3_Kiosk_Amagumbi_kWh.csv"
+file = "../Data_files/WITS_The_Junction_MSS_3_Kiosk_Sarie_Marais_kWh/WITS_The_Junction_MSS_3_Kiosk_Sarie_Marais_kWh.csv"
 df = pd.read_csv(file)
 columns = ['Date_time','Reading']
 number_of_readings = 1#len(df)
@@ -17,6 +17,4 @@ clean_data['Reading'] = clean_data['Reading'].interpolate('values')
 print("********CLEAN**********")
 print(pd.value_counts(clean_data['Reading'].values,sort=True,dropna = False))
 
-clean_data.to_csv('clean_Amagumbi.csv')
-
-,
+clean_data.to_csv('Sarie_Marais.csv')

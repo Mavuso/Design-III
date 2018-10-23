@@ -4,29 +4,7 @@
 
 
 $(document).ready(function(){
-    let graph_query = {'building_name':"",'month':"",'year':"",'type':""}
-    $("#plot_button").click(function() {
-        let request = new XMLHttpRequest();
-        alert(document.getElementById('date_start').value);
-        request.open('GET','/wits_energy/get_data', true);
-
-        request.onload = function(){
-            let data = JSON.parse(request.responseText);
-            alert(data.x.length)
-    
-        let graphObject = [{
-            x:data.x,
-            y:data.y,
-            type:'line'
-        }];
-        
-        Plotly.newPlot('graph',graphObject);
-        alert("DONE")
-        }
-        request.send();
-    });
-
-    // Close the dropdown menu if the user clicks outside of it
+    let graph_query = {'building_name':"",'start':"",'end':"",'type':""}
     
     $("#building_menu").on("click", "a", function() {
         //let request = new XMLHttpRequest();
@@ -46,19 +24,78 @@ $(document).ready(function(){
     });
 
 
-    $("#plot_menu").change(function(){
-        graph_query.type = (this.value);
-    });
-
     $("#plot").click(function(){
         //Validation
-        alert(graph_query.type)
+        
+        graph_query.start = ($('#date_start').val());
+       graph_query.end = ($("#date_end").val());
+       graph_query.type = $('#plot_menu').val();
+       graph_query.building_name = $('#buildings_menu').val();
 
-        $.post("/wits_energy/create",
-        graph_query,
-        function(data, status){
-            alert(status)
-        });
+       let layout = {
+        autosize: false,
+        width: 700,
+        height: 350,
+        
+      
+        title: "Junction "+graph_query.building_name+" energy consumption plot",
+        xaxis: {
+          title: "Time",
+          titlefont: {
+            family: "Courier New, monospace",
+            size: 12,
+            color: "#7f7f7f"
+          }
+        },
+        yaxis: {
+          title: "Energy used(kWh)",
+          titlefont: {
+            family: "Courier New, monospace",
+            size: 12,
+            color: "#7f7f7f"
+          }
+        }
+      };
+
+       $.ajax({
+        type:"POST",
+        async: false,
+        cache:false,
+        url:"/wits_energy/create",
+        data:graph_query,    // multiple data sent using ajax
+        success: function (data) {
+            let graphObject = [{
+            x:data.x,
+            y:data.y,
+            type:'line'
+            }];
+            Plotly.newPlot('graph',graphObject,layout);      
+        }
+      });
+      return false; //stoping page resfreshes 
+    //    $.post("/wits_energy/create",
+    //     graph_query,
+    //     function(data,status){
+            
+    //         if(status == 'success'){
+    //             alert("Ibuyile")
+                
+    //             alert(data.x)
+        
+        // let graphObject = [{
+        //     x:data.x,
+        //     y:data.y,
+        //     type:'line'
+        // }];
+                
+        //         Plotly.newPlot('graph',graphObject);
+        //         alert("DONE");
+    //         } 
+               
+    //         else{alert(status)}
+
+    //     });
+            
     });
     
 });

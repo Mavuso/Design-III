@@ -6,11 +6,9 @@ from todate_fun import to_date
 from create_uniqueID import create_docID
 
 #these are the chosen months in the dataset
-months = ["2017-05","2017-06","2017-07"]
-# 2017-08","2017-09"
-#         ,"2017-10","2017-11","2017-12","2018-01","2018-02","2018-03"
-#         ,"2018-04","2018-05","2018-06"]
-
+months = ["2017-05","2017-06","2017-07","2017-08","2017-09","2017-10","2017-11","2017-12","2018-01","2018-02","2018-03"
+         ,"2018-04","2018-05","2018-06"]
+#
 #get Admin credentials ceritificate
 cred = credentials.Certificate('credi.json')
 firebase_admin.initialize_app(cred, {
@@ -43,8 +41,7 @@ def insert_to_firestore(consumption_df,utility,building):
                 print("Writting document")
                 doc = database.collection(collection_name).document(create_docID(x,building["building_name"],building["campus_name"]))
                 monthly_doc = {
-            "month" :x[5:],
-            "year" :x[:4],
+            "year-month" :x,
             "campus":building["campus_name"],
             "building":building["building_name"],
             "type":building["type"],

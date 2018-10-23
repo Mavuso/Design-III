@@ -45,4 +45,3 @@ def insert_to_firestore(consumption_df,collection,building):
             u'Date_time': to_date(consumption_df['Date_time'][i]),
             u'consumption': consumption_df['Reading'][i]
         })
-    

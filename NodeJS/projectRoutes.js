@@ -6,11 +6,12 @@ let bodyParser = require("body-parser");
 let query_firestore = require('./get_data.js')
 
 projectRouter.use(bodyParser.urlencoded({ extended: true }));
-projectRouter.use(bodyParser.json());
 
-projectRouter.get('/get_data', function (req, res) {
-    console.log("BODY");
-    query_firestore(res)
+
+projectRouter.post('/get_data', function (req, res) {
+    console.log("Testing");
+    console.log(req.body);
+    //query_firestore(res)
     //res.sendFile(path.join(__dirname,'/pages/','index.html'));
 });
 
@@ -19,10 +20,10 @@ projectRouter.get('/',function(req,res){
     res.sendFile(path.join(__dirname,'/pages/','index.html'));
 });
 
-
-projectRouter.post('/create',function(req,res){
-    
-    console.log(req.body.type);
+projectRouter.post('/create',function(req,res){    
+    let graph_options = (req.body);
+    query_firestore(graph_options,res)
+    console.log(graph_options);
     //res.sendFile(path.join(__dirname,'/pages','create.html'));
 });
 

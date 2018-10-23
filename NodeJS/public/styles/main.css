@@ -1,16 +1,32 @@
 #graph {
     position: absolute;
     left: 400px;
-    top: 270px;
+    top: 210px;
     height: 50%;
-    width: 50%;
-    background-color: black
+    width: 100%;
+    background-color: lightgrey
 }
 
 h1{
-    text-align: center
+    text-align: center;
 }
 
+#plot{
+    height: 5%;
+    width: 20%;
+}
+
+/* 
+#graph_options{
+    height:80%;
+    width: 40%;
+    background-color: lightcyan;
+}
+ */
+
+
+
+/* 
 #plot_button{
     height: 5%;
     width: 40%;
@@ -43,8 +59,8 @@ h1{
 
 .dropdown-content {
     display: none;
-    position: absolute;
-    right: 0;
+     position: absolute;
+    right: 0; 
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -67,6 +83,6 @@ h1{
     width: 15%;
     position: absolute;
     left: 460px;
-    top: 200px;
+    top: 200px; 
 }
-
+ */
