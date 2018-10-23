@@ -6,12 +6,12 @@ from insert_to_firestore import insert_to_firestore
 
 #path to file which mush be added to dB
 building = {}
-building['building_name']='Shosholoza'
+building['building_name']='Languta'
 building['location']='Wits_The_Junction'
 building['used_for']='Residential'
 
 print('***Extracting data from csv****')
-directory = "../clean_data/junction_amagumbi.csv"
+directory = "../clean_data/"+building["building_name"]+".csv"
 
 columns = ['Date_time','Reading']
 df = pd.read_csv(directory)
@@ -27,7 +27,7 @@ df['Reading']=df['Reading'].astype('float') #changing type to json serializable 
 print("***Sending to 'to firestore module'***")
     
 insert_to_firestore(df,utility = "energy",
-building={"building_name":"Amagumbi","campus_name":"wits_junction","type":"Residential"})
+building={"building_name":building["building_name"],"campus_name":"wits_junction","type":"Residential"})
 
 
 #schema of document

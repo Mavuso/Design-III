@@ -7,14 +7,17 @@
 	<script src = "/cdn/libraries/jquery.js" ></script>
 	<script src="/cdn/scripts/client_side/index.js"></script>
 	<script src="/cdn/scripts/plot.js"></script>
-	<script src = "https://cdn.plot.ly/plotly-latest.min.js">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<scriptj src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<link rel = "stylesheet" type="text/css" href="/cdn/css/style.css">
-
+	<script src = "/cdn/libraries/js/bootstrap.min.js" ></script>
+	<script src = "https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<link rel="stylesheet" href="/cdn/styles/main.css">
+	<link rel="stylesheet" href="/cdn/styles/styling.css">
+	<link rel="stylesheet" href="/cdn/libraries/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/cdn/libraries/css/bootstrap-theme.min.css">
 <title>HOME PAGE</title>
 </head>
-<body>
+</meta>
+<body class = "container-fluid">
+
 <div class = "container">
 	<div class = "jumbotron">
 		<h1>
@@ -23,27 +26,86 @@
 
 	</div>
 
-	<div class = "col=sm-4">	
-		<div id = "graph" style="width:600px;height:250px;" class = "col=sm-4">
-			plot div
+
+<nav id="sidebar">
+	<div id = "graph_options" class = "col=sm-4">	
+		  		
+		<form class="form-horizontal">
+		
+		<div id = "plot_form" class = "form-row">
+			<p class="form-group">
+				<label for="plot_menu" class="control-label col-xs-2">Select graph</label>  		
+				<div class="col-xs-10">				
+				<select name="plot_menu"  class = "form-control" id = "plot_menu">
+					<option value="line">Line graph</option>
+					<option value="bar">Bar graph</option>
+					<option value="area">Area plot</option>
+				</select>
+				</div>
+				
+			</p >  
 		</div>
 		
-		<a>
-			<button type="button"  id="plot_button" class = "btn btn-outline-success">Plot</button>
-		</a>
+ 		<div id = "plot_form" class = "form-row">
+			
+			<p class="form-group">
+			  
+            <label for="buildings_menu" class="control-label col-xs-2">Select building</label>
+            
+			<div class="col-xs-10">  		
+								
+				<select name="buildings_menu" class = "form-control" id = "buildings_menu" required>
+					<option value="Egoli" selected>Egoli</option>
+					<option value="Great_Heart" selected>ShoshoGreat</option>
+					<option value="Languta">Languta</option>
+					<option value="Ntombela">Ntombela</option>
+  				</select>
+			
+				</div>
+				
+			</p>  
+		</div>
 		
-	<div>
+		
+ 	<div id = "plot_form" class = "form-row">
+			
+		<p class="form-group">
+            <label for="date_end" class="control-label col-xs-2">Select start date</label>            
+			<div class="col-xs-10">  		
+				<input type="date" id="date_start" name="plot_start" class = "form-control"   min="2017-05-01" max="2018-07-31" required>		
+			</div>
+				
+		</p > 
+	</div>
 
 
-	<div class = "col=sm-4">	
-		<a>
-			<button type="button"  id="plot_button" class = "btn btn-outline-success">Plot</button>
-		</a>
-		
-	<div>
+
+
+ 	<div id = "plot_form" class = "form-row">
+			
+		<p class="form-group">
+			  
+            <label for="date_end" class="control-label col-xs-2">Select last date</label>
+            
+			<div class="col-xs-15j">  		
+				<input type="date" id="date_end" name="plot_end" class = "form-control"   min="2017-05-01" max="2018-07-31" required>		
+			</div>
+				
+		</p > 
+	</div>
+	</fieldset>
+	</p>
+	<button id="plot" class = "btn btn-outline-success">Get plot</button> 
+	
+	</div>
+	</form>
+
+	<div class="col-md-5" id = "graph">
+    <canvas id="myChart" ></canvas>
+	</div>
 
 </div>
 
+</nav>
 </body>
-
 </html>
